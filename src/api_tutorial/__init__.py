@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from api-tutorial!")
+from .db import  Database

@@ -21,3 +21,4 @@ CLAUDE.md
 .pytest_cache/
 PROGRESS.md
 candidate.md
+docs/TDD.md
