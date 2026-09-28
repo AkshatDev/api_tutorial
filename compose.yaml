@@ -1,0 +1,7 @@
+services:
+  app:
+    image: api-tutorial
+    build: .
+    volumes:
+      - .:/app
+      - /app/.venv
