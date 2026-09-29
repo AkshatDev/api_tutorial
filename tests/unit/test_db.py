@@ -1,6 +1,4 @@
 from api_tutorial import Database
-from sqlalchemy import text
-import os
 
 
 def test_sql_engine():

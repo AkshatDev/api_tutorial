@@ -1,6 +1,8 @@
-from api_tutorial import Database
-from sqlalchemy import text
 import os
+
+from sqlalchemy import text
+
+from api_tutorial import Database
 
 
 def test_sql_connection():
