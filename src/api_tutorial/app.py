@@ -1,11 +1,16 @@
-from flask import Flask
+from fastapi import FastAPI
 
 
-def create_app() -> Flask:
-    app = Flask(__name__)
+def create_app() -> FastAPI:
+    """Create a FastAPI application."""
 
-    @app.route("/health")
-    def health() -> dict[str, str]:
+    app = FastAPI()
+
+    @app.get("/health")
+    async def health()->dict[str, str]:
         return {"status": "ok"}
 
     return app
+
+
+app = create_app()
