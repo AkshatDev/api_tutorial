@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from .schemas import Health
+
 
 def create_app() -> FastAPI:
     """Create a FastAPI application."""
@@ -7,8 +9,8 @@ def create_app() -> FastAPI:
     app = FastAPI()
 
     @app.get("/health")
-    async def health()->dict[str, str]:
-        return {"status": "ok"}
+    async def health() -> Health:
+        return Health(status="ok")
 
     return app
 
