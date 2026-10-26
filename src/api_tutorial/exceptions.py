@@ -1,2 +1,5 @@
+"""This module contains custom exceptions for this project."""
+
+
 class DuplicateSlugError(Exception):
-    """Raised when a station with same slug already exists."""
+    """Raised when a station with the same slug already exists."""

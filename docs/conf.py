@@ -1,3 +1,4 @@
+"""Sphinx configuration for the project documentation."""
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -22,6 +23,7 @@ extensions = [
 autodoc_typehints = "description"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 autodoc_inherit_docstrings = False
+autodoc_member_order = "bysource"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
