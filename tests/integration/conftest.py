@@ -1,3 +1,5 @@
+"""Database fixtures for integration tests (needs the Postgres service from Compose)."""
+
 import os
 from collections.abc import Iterator
 
@@ -10,7 +12,7 @@ from api_tutorial import Base, Database
 
 @pytest.fixture(scope="session")
 def engine() -> Iterator[Engine]:
-    """Created once per test run: creates the tables, and disposes of the engine at the end."""
+    """Create the engine once per test run, create the tables, and dispose of it at the end."""
     engine = Database(os.environ["DATABASE_URL"]).engine
     Base.metadata.create_all(engine)
     yield engine
@@ -19,7 +21,7 @@ def engine() -> Iterator[Engine]:
 
 @pytest.fixture
 def session(engine: Engine) -> Iterator[Session]:
-    """A new one for every test, rolled back afterwards so tests don't affect each other."""
+    """Give each test a new session, rolled back afterwards so tests don't affect each other."""
     with engine.connect() as connection:
         transaction = connection.begin()
         session = Session(bind=connection, join_transaction_mode="create_savepoint")
